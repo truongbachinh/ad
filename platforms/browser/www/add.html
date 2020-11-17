@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Rating Application</title>
+</head>
+<body>
+<div data-role="page">
+    <div data-role="header">
+        <h1>Rating Restaurant</h1>
+        <div data-role="navbar" data-iconpos="right">
+            <ul>
+                <li><a href="index.html" data-icon="home" >Home</a></li>
+                <li><a  href="view.html" data-icon="eye" >View</a></li>
+            </ul>
+            <form class="ui-filterable">
+                    <input id="autocomplete-input" data-type="search" placeholder="Find a restaurant...">
+            </form>
+        </div>
+    </div>
+
+    <div role="main" class="ui-content" >
+        <div class="content" data-role="content">
+            <div class="formDB">
+                <form id="first_form" >
+                    <div>
+                        <label for="r-id">Restaurant ID:</label>
+                        <input type="text" name="restaurantId" id="r-id" placeholder="ID">
+                    </div>
+                    <div>
+                        <label for="r-name">Restaurant Name:</label>
+                        <input type="text" name="restaurantName" id="r-name" placeholder="Input restaurant name...">
+                    </div>
+
+                    <div>
+                        <lable for="r-picture">Restaurant Picture:</lable>
+                        <input type="file" id="r-picture">
+                    </div>
+                    <div>
+                        <label for="r-type" class="select">Restaurant Type</label>
+                        <select name="select-choice-1" id="r-type" required>
+                            <option value="fastFood">Fast Food</option>
+                            <option value="buffet">Buffet</option>
+                            <option value="casual">Casual</option>
+                            <option value="cafe">Cafe</option>
+                            <option value="pizza">Pizzeria</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="r-date">Date & Time to visit:</label>
+                        <input type="date" name="date" id="r-date" value="">
+                    </div>
+                    <div>
+                        <label for="r-time">Time to visit:</label>
+                        <input type="time" name="time" id="r-time" value="">
+                    </div>
+                    <div>
+                        <label for="r-price">Price per one:</label>
+                        <input type="text" name="price" id="r-price" value="" placeholder="Input price...">
+                    </div>
+
+                    <div>
+                        <label for="service-r" class="select">
+                            <h2>Service rating</h2>
+                        </label>
+                        <select name="service-rating" id="service-r" data-native-menu="false" data-theme="c">
+                            <option value="1" class="one">Not Good</option>
+                            <option value="2" class="two">Average </option>
+                            <option value="3" class="three">Pretty good </option>
+                            <option value="4" class="four"> Excellent </option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="clean-r" class="select">
+                            <h2>Clean rating</h2>
+                        </label>
+                        <select name="clean-rating" id="clean-r" data-native-menu="false" data-theme="c">
+                            <option value="1" class="one">Not Good</option>
+                            <option value="2" class="two">Average </option>
+                            <option value="3" class="three">Pretty good </option>
+                            <option value="4" class="four"> Excellent </option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="food-r" class="select">
+                            <h2>Food Quality Rating </h2>
+                        </label>
+                        <select name="food-rating" id="food-r" data-native-menu="false" data-theme="c">
+                            <option value="1" class="one">Not Good</option>
+                            <option value="2" class="two">Average </option>
+                            <option value="3" class="three">Pretty good </option>
+                            <option value="4" class="four"> Excellent </option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="note">Note:</label>
+                        <textarea cols="40" rows="8" name="note" id="note"></textarea>
+                    </div>
+                    <div>
+                        <label for="reporter">Name of reporter</label>
+                        <input type="text" name="reporter" id="reporter" value="" placeholder="Input reporter...">
+                    </div>
+                    <div>
+                        <input type="submit" class="add-row" id="submit" value="Add Restaurant" />
+                    </div>
+
+                </form>
+            </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <div data-role="footer">
+        <h1>About Us</h1>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize();
+</script>
+
+
+</div></body>
+</html>
