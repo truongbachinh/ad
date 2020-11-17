@@ -8,10 +8,25 @@
 
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/mobiscroll.javascript.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobiscroll.javascript.min.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Rating Application</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+    </style>
 </head>
 <body>
 <div data-role="page">
@@ -68,38 +83,56 @@
                         <input type="text" name="price" id="r-price" value="" placeholder="Input price...">
                     </div>
 
-                    <div>
-                        <label for="service-r" class="select">
-                            <h2>Service rating</h2>
-                        </label>
-                        <select name="service-rating" id="service-r" data-native-menu="false" data-theme="c">
-                            <option value="1" class="one">Not Good</option>
-                            <option value="2" class="two">Average </option>
-                            <option value="3" class="three">Pretty good </option>
-                            <option value="4" class="four"> Excellent </option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="clean-r" class="select">
-                            <h2>Clean rating</h2>
-                        </label>
-                        <select name="clean-rating" id="clean-r" data-native-menu="false" data-theme="c">
-                            <option value="1" class="one">Not Good</option>
-                            <option value="2" class="two">Average </option>
-                            <option value="3" class="three">Pretty good </option>
-                            <option value="4" class="four"> Excellent </option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="food-r" class="select">
-                            <h2>Food Quality Rating </h2>
-                        </label>
-                        <select name="food-rating" id="food-r" data-native-menu="false" data-theme="c">
-                            <option value="1" class="one">Not Good</option>
-                            <option value="2" class="two">Average </option>
-                            <option value="3" class="three">Pretty good </option>
-                            <option value="4" class="four"> Excellent </option>
-                        </select>
+<!--                    <div>-->
+<!--                        <label for="service-r" class="select">-->
+<!--                            <h2>Service rating</h2>-->
+<!--                        </label>-->
+<!--                        <select name="service-rating" id="service-r" data-native-menu="false" data-theme="c">-->
+<!--                            <option value="1" class="one">Not Good</option>-->
+<!--                            <option value="2" class="two">Average </option>-->
+<!--                            <option value="3" class="three">Pretty good </option>-->
+<!--                            <option value="4" class="four"> Excellent </option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label for="clean-r" class="select">-->
+<!--                            <h2>Clean rating</h2>-->
+<!--                        </label>-->
+<!--                        <select name="clean-rating" id="clean-r" data-native-menu="false" data-theme="c">-->
+<!--                            <option value="1" class="one">Not Good</option>-->
+<!--                            <option value="2" class="two">Average </option>-->
+<!--                            <option value="3" class="three">Pretty good </option>-->
+<!--                            <option value="4" class="four"> Excellent </option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label for="food-r" class="select">-->
+<!--                            <h2>Food Quality Rating </h2>-->
+<!--                        </label>-->
+<!--                        <select name="food-rating" id="food-r" data-native-menu="false" data-theme="c">-->
+<!--                            <option value="1" class="one">Not Good</option>-->
+<!--                            <option value="2" class="two">Average </option>-->
+<!--                            <option value="3" class="three">Pretty good </option>-->
+<!--                            <option value="4" class="four"> Excellent </option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+                    <div mbsc-form>
+                        <div class="mbsc-form-group">
+                            <div class="mbsc-form-group-title">Rating colors</div>
+                            <label class="mbsc-rating-warning">
+                                Service
+                                <input mbsc-rating type="rating" id="service-r" type="rating" id="myInput" />
+                            </label>
+                            <label class="mbsc-rating-warning">
+                                Clean
+                                <input mbsc-rating type="rating" id="clean-r" type="rating" />
+                            </label>
+                            <label class="mbsc-rating-warning">
+                                Food-Rating
+                                <input mbsc-rating type="rating" id="food-r" type="rating" />
+                            </label>
+
+                        </div>
                     </div>
                     <div>
                         <label for="note">Note:</label>
@@ -122,14 +155,14 @@
     <br>
 
 
-
     <div data-role="footer">
         <h1>About Us</h1>
     </div>
 </div>
+
     <script type="text/javascript" src="js/indexedDB.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
     app.initialize();
 </script>
 

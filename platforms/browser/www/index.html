@@ -35,40 +35,11 @@
 
     <div role="main" class="ui-content" >
         <h1>Top restaurant</h1>
-        <div class="content-right">
-            <div class="slideshow-container">
-                <div class="mySlides fade">
-                    <img src="/img/slide.jpg" />
-                    <div class="text">Hot Restaurant Summer 2020</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="/img/slide2.jpg" />
-                    <div class="text">Restaurant in ThaiLand</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="/img/slide3.jpg" />
-                    <div class="text">Luxury Restaurant</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="/img/slide4.jpg" />
-                    <div class="text">New Restaurant</div>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <span class="dot" onclick="currentSlide(0)"></span>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
-        </div>
-
 
         <div data-role="navbar" data-iconpos="left">
-
             <ul>
                 <li><a id="add" data-icon="plus" >Add</a></li>
-                <li><a  id="view" data-icon="eye" >View</a></li>
+                <li><a  id="view" class="viewDB" data-icon="eye" >View</a></li>
             </ul>
          </div>
     </div>
@@ -79,6 +50,7 @@
     <div data-role="footer">
         <h1>About Us</h1>
     </div>
+
 </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
@@ -87,6 +59,7 @@
     <script type="text/javascript">
         app.initialize();
     </script>
+
 </body>
 
 </html>
