@@ -1,4 +1,5 @@
-
+function reload()
+{window.location.href='add.html';}
 var app = {
 
     initialize: function() {

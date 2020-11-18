@@ -98,14 +98,15 @@ function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, da
 
     request.onsuccess = function (event) {
         alert(`${nameRestaurant}  has been added to your database.`);
+       reload();
     };
     request.onerror = function (event) {
         alert(
             `Unable to add data\r\n ${idRestaurant} is already exist in your database! `
         );
     };
- 
-    window.location.href='view.html';
+    location.reload();
+
 }
 
 
