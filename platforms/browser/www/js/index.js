@@ -1,4 +1,6 @@
-
+function reload() {
+    window.location.href='view.html';
+}
 var app = {
 
     initialize: function() {
