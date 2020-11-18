@@ -31,7 +31,7 @@
                     'data:image/jpeg;base64,' + btoa(cursor.value.picture)+
                     "'/>";
                 var totalRating = Math.round((cleanRating + foodRating +serviceRating)/3);
-                
+
                 liItem.innerHTML = `<p>Restaurant: ${nameRestaurant}</p><p class class="fa fa-star checked">Rating: ${totalRating}</p><p>Reporter: ${Reporter}</p></p><p>${pictureRestaurant}</p>`;
 
                 var deleteButton = document.createElement('button');
@@ -63,6 +63,7 @@
 
 
         }
+
     }
 
     function editItem(event) {
