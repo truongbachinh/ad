@@ -8,33 +8,32 @@ request.onsuccess = function (event) {
 
 
 //https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_text_value_formval
-    console.log("request", request);
-    request.onsuccess = function (event) {
-        db = request.result;
-        var urlParams = new URLSearchParams(window.location.search);
-        var logID = urlParams.get('id');
-        alert(logID);
-        var requester = db.transaction(["RestaurantDB"], "readonly").objectStore("RestaurantDB").get(logID);
-        requester.onsuccess = function (event) {
-            var r = requester.result;
-            if (r != null) {
-                $('#submit').val('edit');
-                $('#r-id').val(r.id);
-                $('#r-name').val(r.name);
-                $('#r-type').val(r.type);
-                $('#r-picture').val(r.picture);
-                $('#food-r').val(r.food);
-                $('#service-r').val(r.service);
-                $('#clean-r').val(r.clean);
-                $('#r-date').val(r.date);
-                $('#r-time').val(r.time);
-                $('#note').val(r.note);
-                $('#reporter').val(r.reporter);
-            } else {
-                alert('Record Does not exist');
-            }
-        };
-    };
+
+    // request.onsuccess = function (event) {
+    //     db = request.result;
+    //     var urlParams = new URLSearchParams(window.location.search);
+    //     var logID = urlParams.get('id');
+    //     var requester = db.transaction(["RestaurantDB"], "readonly").objectStore("RestaurantDB").get(logID);
+    //     requester.onsuccess = function (event) {
+    //         var r = requester.result;
+    //         if (r != null) {
+    //             $('#submit').val('edit');
+    //             $('#r-id').val(r.id);
+    //             $('#r-name').val(r.name);
+    //             $('#r-type').val(r.type);
+    //             $('#r-picture').val(r.picture);
+    //             $('#food-r').val(r.food);
+    //             $('#service-r').val(r.service);
+    //             $('#clean-r').val(r.clean);
+    //             $('#r-date').val(r.date);
+    //             $('#r-time').val(r.time);
+    //             $('#note').val(r.note);
+    //             $('#reporter').val(r.reporter);
+    //         } else {
+    //             alert('Record Does not exist');
+    //         }
+    //     };
+    // };
 
 
 $(document).ready(function () {
@@ -84,7 +83,7 @@ function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, da
     var bits;
     reader.onload = function (e){
         bits = e.target.result;
-      alert(bits)
+
         var request = db
             .transaction(['RestaurantDB'], 'readwrite')
             .objectStore('RestaurantDB')
@@ -92,17 +91,17 @@ function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, da
                 id: idRestaurant, name: nameRestaurant, picture: bits, type: typeRestaurant, date: dateVisit, time: timeVisit, price: pricePerOne,
                 service: serviceRating, clean: cleanRating, food: foodRating, note: Note, reporter: Reporter
             });
-      console.log(request,'ad');
+
         request.onsuccess = function (event) {
             alert(`${nameRestaurant}  has been added to your database.`);
-          reload();
+            window.location.href='view.html';
         };
         request.onerror = function (event) {
             alert(
                 `Unable to add data\r\n ${idRestaurant} is already exist in your database! `
             );
         };
-       // location.reload();
+
     }
 }
 
