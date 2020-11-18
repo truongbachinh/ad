@@ -1,9 +1,9 @@
-    request.onerror = function (event) {
-        console.log('error: ');
-    };
-    request.onsuccess = function (event) {
-        db = request.result;
-    };
+request.onerror = function (event) {
+    console.log('error: ');
+};
+request.onsuccess = function (event) {
+    db = request.result;
+};
 
 
 
@@ -40,75 +40,72 @@
     //     };
     // };
 
-    document.querySelector('#r-picture').addEventListener('change', doFile);
+// document.querySelector('#r-picture').addEventListener('change', doFile);
+// function doFile(e) {
+//     console.log('change event fired for input field');
+//     let file = e.target.files[0];
+//     var reader = new FileReader();
+//     //              reader.readAsDataURL(file);
+//     reader.readAsBinaryString(file);
+//
+//     reader.onload = function (e) {
+//         alert(e.target.result);
+//         let bits = e.target.result;
+//         let trans = db.transaction(['RestaurantDB'], 'readwrite');
+//         let addReq = trans.objectStore('RestaurantDB').add({picture: bits});
+//         addReq.onerror = function (e) {
+//             console.log('error storing data');
+//             console.error(e);
+//         }
+//         trans.oncomplete = function (e) {
+//             console.log('data stored');
+//         }
+//     }
+// }
 
-    function doFile(e) {
-        console.log('change event fired for input field');
-        let file = e.target.files[0];
-        var reader = new FileReader();
-        //              reader.readAsDataURL(file);
-        reader.readAsBinaryString(file);
-
-        reader.onload = function (e) {
-            //alert(e.target.result);
-            let bits = e.target.result;
-
-
-            let trans = db.transaction(['RestaurantDB'], 'readwrite');
-            let addReq = trans.objectStore('RestaurantDB').add({picture: bits});
-
-            addReq.onerror = function (e) {
-                console.log('error storing data');
-                console.error(e);
-            }
-
-            trans.oncomplete = function (e) {
-                console.log('data stored');
-            }
-        }
-    }
-    $(document).ready(function () {
-        $('.add-row').click(function () {
-            var id = $('#r-id').val();
-            var name = $('#r-name').val();
-            var picture = $('#r-picture').val();
-            var type = $('#r-type').val();
-            var date = $('#r-date').val();
-            var time = $('#r-time').val();
-            var price = $('#r-price').val();
-            var service = $('#service-r').val();
-            var clean = $('#clean-r').val();
-            var food = $('#food-r').val();
-            var note = $('#note').val();
-            var reporter = $('#reporter').val();
-            add(id, name, picture, type, date, time, price, service, clean, food, note, reporter);
-        });
+$(document).ready(function () {
+    $('.add-row').click(function () {
+        var id = $('#r-id').val();
+        var name = $('#r-name').val();
+        var picture = $('#r-name').val();
+        var type = $('#r-type').val();
+        var date = $('#r-date').val();
+        var time = $('#r-time').val();
+        var price = $('#r-price').val();
+        var service = $('#service-r').val();
+        var clean = $('#clean-r').val();
+        var food = $('#food-r').val();
+        var note = $('#note').val();
+        var reporter = $('#reporter').val();
+        add(id, name, picture, type, date, time, price, service, clean, food, note, reporter);
     });
+});
 
 
 
 
-    function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, dateVisit, timeVisit, pricePerOne,
-                 serviceRating, cleanRating, foodRating, Note, Reporter) {
 
-        var request = db
-            .transaction(['RestaurantDB'], 'readwrite')
-            .objectStore('RestaurantDB')
-            .add({
-                id: idRestaurant, name: nameRestaurant, picture: pictureRestaurant, type: typeRestaurant, date: dateVisit, time: timeVisit, price: pricePerOne,
-                service: serviceRating, clean: cleanRating, food: foodRating, note: Note, reporter: Reporter
-            });
+function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, dateVisit, timeVisit, pricePerOne,
+             serviceRating, cleanRating, foodRating, Note, Reporter) {
 
-        request.onsuccess = function (event) {
-            alert(`${nameRestaurant}  has been added to your database.`);
-        };
-        request.onerror = function (event) {
-            alert(
-                `Unable to add data\r\n ${idRestaurant} is already exist in your database! `
-            );
-        };
-       window.location.replace('view.html');
-    }
+    var request = db
+        .transaction(['RestaurantDB'], 'readwrite')
+        .objectStore('RestaurantDB')
+        .add({
+            id: idRestaurant, name: nameRestaurant, picture: pictureRestaurant, type: typeRestaurant, date: dateVisit, time: timeVisit, price: pricePerOne,
+            service: serviceRating, clean: cleanRating, food: foodRating, note: Note, reporter: Reporter
+        });
+
+    request.onsuccess = function (event) {
+        alert(`${nameRestaurant}  has been added to your database.`);
+    };
+    request.onerror = function (event) {
+        alert(
+            `Unable to add data\r\n ${idRestaurant} is already exist in your database! `
+        );
+    };
+    window.location.replace('view.html');
+}
 
 
 

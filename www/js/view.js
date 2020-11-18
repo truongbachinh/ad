@@ -21,22 +21,25 @@
                 dateVisit = cursor.value.date;
                 timeVisit = cursor.value.time;
                 pricePerOne = cursor.value.price;
-                serviceRating = cursor.value.service;
-                cleanRating = cursor.value.clean;
-                foodRating = cursor.value.food;
+                serviceRating = parseInt(cursor.value.service);
+                cleanRating = parseInt(cursor.value.clean);
+                foodRating = parseInt(cursor.value.food);
                 Note = cursor.value.note;
                 Reporter = cursor.value.reporter;
 
                 pictureRestaurant = "<img width='100px' height='100px' src='"+
                     'data:image/jpeg;base64,' + btoa(cursor.value.picture)+
                     "'/>";
-
-                liItem.innerHTML = `<p>Restaurant: ${nameRestaurant}<p>Reporter: ${Reporter}</p></p><p>${pictureRestaurant}</p><p></p>`;
+                var totalRating = Math.round((cleanRating + foodRating +serviceRating)/3);
+                
+                liItem.innerHTML = `<p>Restaurant: ${nameRestaurant}</p><p class class="fa fa-star checked">Rating: ${totalRating}</p><p>Reporter: ${Reporter}</p></p><p>${pictureRestaurant}</p>`;
 
                 var deleteButton = document.createElement('button');
                 var editButton = document.createElement('button')
-                editButton.innerHTML = `<tr><td>Edit</td></tr>`
+
                 deleteButton.innerHTML = `<tr><td>X</td></tr>`;
+                editButton.innerHTML = `<tr><td>Edit</td></tr>`
+
                 liItem.appendChild(deleteButton);
                 liItem.appendChild(editButton);
                 // here we are setting a data attribute on our delete button to say what task we want deleted if it is clicked!

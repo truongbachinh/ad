@@ -8,7 +8,7 @@
 
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
 
@@ -16,14 +16,14 @@
     <title>Rating Application</title>
 </head>
 <body>
-
+<a class="attribution" href="http://fontawesome.io/"><i class="fa fa-font-awesome"></i> fontawesome.io</a>
 <div data-role="page">
     <div data-role="header">
         <h1>Rating Restaurant</h1>
         <div data-role="navbar" data-iconpos="right">
             <ul>
-                <li><a href="index.html" data-icon="home" >Home</a></li>
-                <li><a  href="add.html" data-icon="plus" >Add</a></li>
+                <li><a onclick="home()" data-icon="home" >Home</a></li>
+                <li><a  onclick="add()" data-icon="plus" >Add</a></li>
             </ul>
             <form class="ui-filterable">
                     <input id="autocomplete-input" data-type="search" placeholder="Find a restaurant...">
@@ -58,6 +58,14 @@
 <script type="text/javascript" src="js/view.js"></script>
 <script type="text/javascript">
     app.initialize();
+</script>
+<script type="text/javascript">
+    function home(){
+        window.location.replace('index.html');
+    }
+    function add(){
+        window.location.replace('add.html');
+    }
 </script>
 </body>
 </html>
