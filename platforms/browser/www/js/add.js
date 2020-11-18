@@ -104,6 +104,7 @@ function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, da
             `Unable to add data\r\n ${idRestaurant} is already exist in your database! `
         );
     };
+    location.reload();
     window.location.replace('view.html');
 }
 
