@@ -13,6 +13,7 @@
         var objectStore = db.transaction('RestaurantDB').objectStore('RestaurantDB');
         objectStore.openCursor().onsuccess = function (event) {
             var cursor = event.target.result;
+
             if (cursor) {
                 var liItem = document.createElement('li');
                 idRestaurant = cursor.value.id;

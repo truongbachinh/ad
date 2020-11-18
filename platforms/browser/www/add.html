@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
     <link rel="stylesheet" type="text/css" href="css/mobiscroll.javascript.min.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <title>Rating Application</title>
     <style type="text/css">
         body {
@@ -58,7 +58,8 @@
 
                     <div>
                         <lable for="r-picture">Restaurant Picture:</lable>
-                        <input type="file" id="r-picture" capture>
+                        <input type="file" id="r-picture" onchange="previewFile()"capture>
+                        <img src="img/slide.jpg" height="200" alt="Image preview...">
                     </div>
                     <div>
                         <label for="r-type" class="select">Restaurant Type</label>
@@ -110,6 +111,7 @@
                     </div>
                     <div>
                         <input type="submit" class="add-row" id="submit" value="Add Restaurant" />
+
                     </div>
                 </form>
             </div>
