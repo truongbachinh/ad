@@ -9,7 +9,6 @@
 
     function displayData(idRestaurant, nameRestaurant,pictureRestaurant, typeRestaurant,dateVisit, timeVisit,pricePerOne,serviceRating,
                          cleanRating,foodRating,Note,Reporter) {
-
         var objectStore = db.transaction('RestaurantDB').objectStore('RestaurantDB');
         objectStore.openCursor().onsuccess = function (event) {
             var cursor = event.target.result;
