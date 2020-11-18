@@ -1,5 +1,4 @@
 
-//document.querySelector('#txtSearch').addEventListener('change', search);
 $(document).ready(function () {
     $('#txtSearch').change(function () {
         search();
@@ -7,7 +6,6 @@ $(document).ready(function () {
 })
 
 function search() {
-
     document.getElementById("viewSearch").innerHTML ="";
     var search = document.getElementById("txtSearch").value;
     var typeSearch = document.getElementById("typeSearch").value;
@@ -19,20 +17,16 @@ function search() {
             //nameRestaurant = cursor.value.name;
             if (cursor) {
                 var dataSearch = cursor.value[typeSearch]
-
-
                 if(dataSearch.includes(search)){
                     var pItem = document.createElement('p');
                     pItem.innerHTML = `<p>Restaurant:${cursor.value.name}</p>`;
                     $(".viewSearch").append(pItem);
                 }
-
                 else {
                     console.log("error");
                 }
                 cursor.continue();
             }
-
         }
     }
 }

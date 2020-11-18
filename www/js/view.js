@@ -1,3 +1,4 @@
+$(document).ready(function () {
     request.onerror = function (event) {
         console.log('error: ');
     };
@@ -5,6 +6,8 @@
         db = request.result;
         displayData();
     };
+});
+
 
 
     function displayData(idRestaurant, nameRestaurant,pictureRestaurant, typeRestaurant,dateVisit, timeVisit,pricePerOne,serviceRating,
