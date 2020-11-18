@@ -1,6 +1,6 @@
 {
-  "name": "App1",
-  "short_name": "App1",
+  "name": "App3",
+  "short_name": "App3",
   "description": "Description of your app from template",
   "start_url": "index.html",
   "scope": "index.html",

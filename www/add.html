@@ -46,7 +46,7 @@
     <div role="main" class="ui-content" >
         <div class="content" data-role="content">
             <div class="formDB">
-               <form id="AD">
+<!--               <form id="AD">-->
                     <div>
                         <label for="r-id">Restaurant ID:</label>
                         <input type="text" name="restaurantId" id="r-id" placeholder="ID">
@@ -58,9 +58,8 @@
 
                     <div>
                         <lable for="r-picture">Restaurant Picture:</lable>
-                        <input type="file" id="r-picture" capture>
-<!--                        <input type="file" id="r-picture" onchange="previewFile()"capture>-->
-<!--                       <img src="img/slide.jpg" height="200" alt="Image preview...">-->
+                        <input type="file" id="r-picture" onchange="previewFile()"capture>
+                       <img src="img/slide.jpg" height="200" alt="Image preview...">
                     </div>
                     <div>
                         <label for="r-type" class="select">Restaurant Type</label>
@@ -114,7 +113,7 @@
                         <input type="submit" class="add-row" id="submit" value="Add Restaurant" />
 
                     </div>
-                </form>
+<!--                </form>-->
             </div>
     </div>
     <br>
@@ -127,10 +126,9 @@
         <h1>About Us</h1>
     </div>
 </div>
-
+    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/indexedDB.js"></script>
     <script type="text/javascript" src="js/add.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
     app.initialize();
     </script>
