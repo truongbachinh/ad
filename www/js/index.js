@@ -1,5 +1,5 @@
 function reload()
-{window.location.href='add.html';}
+{window.location.href='view.html';}
 var app = {
 
     initialize: function() {
