@@ -105,7 +105,7 @@ function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, da
         );
     };
     location.reload();
-    window.location.replace('view.html');
+    window.location.href='view.html';
 }
 
 
