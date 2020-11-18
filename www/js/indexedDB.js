@@ -22,7 +22,7 @@
     };
     request.onsuccess = function (event) {
         db = request.result;
-       //displayData();
+
     };
 
     request.onupgradeneeded = function (event) {
@@ -30,6 +30,7 @@
         var objectStore = db.createObjectStore('RestaurantDB', { keyPath: 'id', autoIncrement: true });
         objectStore.createIndex("name","name",{unique: false});
         objectStore.createIndex("type","type",{unique: false});
+        objectStore.createIndex("picture","picture",{unique: false});
         objectStore.createIndex("date","date",{unique: false});
         objectStore.createIndex("time","time",{unique: false});
         objectStore.createIndex("price","price",{unique: false});
@@ -44,127 +45,8 @@
     };
 
 
-    $(document).ready(function () {
-        $('.viewDB').click(function () {
-            displayData(id, name,picture, type,date, time, price, service, clean, food, note, reporter);
-
-        });
-
-    });
-    $(document).ready(function () {
-        $('.add-row').click(function () {
-
-            var id = $('#r-id').val();
-            var name = $('#r-name').val();
-            var picture = $('#r-picture').val();
-            var type = $('#r-type').val();
-            var date = $('#r-date').val();
-            var time = $('#r-time').val();
-            var price = $('#r-price').val();
-            var service = $('#service-r').val();
-            var clean = $('#clean-r').val();
-            var food = $('#food-r').val();
-            var note = $('#note').val();
-            var reporter = $('#reporter').val();
-
-            add(id, name,picture, type,date, time, price, service, clean, food, note, reporter);
-
-        });
-
-    });
 
 
-    function add(idRestaurant, nameRestaurant,pictureRestaurant, typeRestaurant, dateVisit, timeVisit, pricePerOne,
-                 serviceRating, cleanRating, foodRating, Note, Reporter) {
-
-        var request = db
-            .transaction(['RestaurantDB'], 'readwrite')
-            .objectStore('RestaurantDB')
-            .add({ id: idRestaurant, name: nameRestaurant, picture: pictureRestaurant, type: typeRestaurant,date:dateVisit, time: timeVisit, price: pricePerOne,
-                service: serviceRating, clean: cleanRating, food : foodRating, note: Note, reporter: Reporter });
-
-        request.onsuccess = function (event) {
-
-            alert(`${nameRestaurant}  has been added to your database.`);
-        };
-        request.onerror = function (event) {
-            alert(
-                `Unable to add data\r\n ${idRestaurant} is already exist in your database! `
-            );
-        };
-        location.reload()
-    }
-
-
-    function displayData(idRestaurant, nameRestaurant,pictureRestaurant, typeRestaurant,dateVisit, timeVisit,pricePerOne,serviceRating,
-                         cleanRating,foodRating,Note,Reporter) {
-
-        var objectStore = db.transaction('RestaurantDB').objectStore('RestaurantDB');
-        objectStore.openCursor().onsuccess = function (event) {
-            var cursor = event.target.result;
-            if (cursor) {
-                var liItem = document.createElement('li');
-                idRestaurant = cursor.value.id;
-                nameRestaurant = cursor.value.name;
-                pictureRestaurant = cursor.value.picture;
-                typeRestaurant = cursor.value.type;
-                dateVisit = cursor.value.date;
-                timeVisit = cursor.value.time;
-                pricePerOne = cursor.value.price;
-                serviceRating = cursor.value.service;
-                cleanRating = cursor.value.clean;
-                foodRating = cursor.value.food;
-                Note = cursor.value.note;
-                Reporter = cursor.value.reporter;
-
-                pictureRestaurant = "<img width='100px' height='100px' src='"+
-                    'data:image/jpeg;base64,' + btoa(cursor.value.data)+
-                    "'/>";
-
-                liItem.innerHTML = `<p>${nameRestaurant}</p>`;
-
-                var deleteButton = document.createElement('button');
-                var editButton = document.createElement('button')
-                editButton.innerHTML = `<tr><td>Edit</td></tr>`
-                deleteButton.innerHTML = `<tr><td>X</td></tr>`;
-                liItem.appendChild(deleteButton);
-                liItem.appendChild(editButton);
-                // here we are setting a data attribute on our delete button to say what task we want deleted if it is clicked!
-                deleteButton.setAttribute('data-task', cursor.value.id);
-                editButton.setAttribute('data-edit', cursor.value.id);
-                deleteButton.onclick = function(event) {
-                    deleteItem(event);
-                }
-                editButton.onclick = function(event){
-                    editItem(event);
-                }
-
-                ulItem.appendChild(liItem);
-
-                cursor.continue();}
-
-            else {
-                console.log("error");
-
-            }
-        }
-    }
-
-
-    function deleteItem(event) {
-        // retrieve the name of the task we want to delete
-        var dataTask = event.target.getAttribute('data-task');
-
-        // open a database transaction and delete the task, finding it by the name we retrieved above
-        var transaction = db.transaction(["RestaurantDB"], "readwrite");
-        var request = transaction.objectStore("RestaurantDB").delete(dataTask);
-
-        // report that the data item has been deleted
-        transaction.oncomplete = function() {
-            // delete the parent of the button, which is the list item, so it no longer is displayed
-            event.target.parentNode.parentNode.removeChild(event.target.parentNode);
-        };
-    };
 
 
 

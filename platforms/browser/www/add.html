@@ -35,7 +35,7 @@
         <div data-role="navbar" data-iconpos="right">
             <ul>
                 <li><a href="index.html" data-icon="home" >Home</a></li>
-                <li><a  href="view.html" data-icon="eye" >View</a></li>
+                <li><a  href="view.html" id="view" data-icon="eye" >View</a></li>
             </ul>
             <form class="ui-filterable">
                     <input id="autocomplete-input" data-type="search" placeholder="Find a restaurant...">
@@ -46,7 +46,7 @@
     <div role="main" class="ui-content" >
         <div class="content" data-role="content">
             <div class="formDB">
-                <form id="first_form" >
+                <form action="">
                     <div>
                         <label for="r-id">Restaurant ID:</label>
                         <input type="text" name="restaurantId" id="r-id" placeholder="ID">
@@ -58,7 +58,7 @@
 
                     <div>
                         <lable for="r-picture">Restaurant Picture:</lable>
-                        <input type="file" id="r-picture">
+                        <input type="file" id="r-picture" capture>
                     </div>
                     <div>
                         <label for="r-type" class="select">Restaurant Type</label>
@@ -82,40 +82,6 @@
                         <label for="r-price">Price per one:</label>
                         <input type="text" name="price" id="r-price" value="" placeholder="Input price...">
                     </div>
-
-<!--                    <div>-->
-<!--                        <label for="service-r" class="select">-->
-<!--                            <h2>Service rating</h2>-->
-<!--                        </label>-->
-<!--                        <select name="service-rating" id="service-r" data-native-menu="false" data-theme="c">-->
-<!--                            <option value="1" class="one">Not Good</option>-->
-<!--                            <option value="2" class="two">Average </option>-->
-<!--                            <option value="3" class="three">Pretty good </option>-->
-<!--                            <option value="4" class="four"> Excellent </option>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <label for="clean-r" class="select">-->
-<!--                            <h2>Clean rating</h2>-->
-<!--                        </label>-->
-<!--                        <select name="clean-rating" id="clean-r" data-native-menu="false" data-theme="c">-->
-<!--                            <option value="1" class="one">Not Good</option>-->
-<!--                            <option value="2" class="two">Average </option>-->
-<!--                            <option value="3" class="three">Pretty good </option>-->
-<!--                            <option value="4" class="four"> Excellent </option>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <label for="food-r" class="select">-->
-<!--                            <h2>Food Quality Rating </h2>-->
-<!--                        </label>-->
-<!--                        <select name="food-rating" id="food-r" data-native-menu="false" data-theme="c">-->
-<!--                            <option value="1" class="one">Not Good</option>-->
-<!--                            <option value="2" class="two">Average </option>-->
-<!--                            <option value="3" class="three">Pretty good </option>-->
-<!--                            <option value="4" class="four"> Excellent </option>-->
-<!--                        </select>-->
-<!--                    </div>-->
                     <div mbsc-form>
                         <div class="mbsc-form-group">
                             <div class="mbsc-form-group-title">Rating colors</div>
@@ -145,7 +111,6 @@
                     <div>
                         <input type="submit" class="add-row" id="submit" value="Add Restaurant" />
                     </div>
-
                 </form>
             </div>
     </div>
@@ -161,6 +126,7 @@
 </div>
 
     <script type="text/javascript" src="js/indexedDB.js"></script>
+    <script type="text/javascript" src="js/add.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
     app.initialize();
