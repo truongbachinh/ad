@@ -50,18 +50,18 @@ function previewFile() {
 function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, dateVisit, timeVisit, pricePerOne,
              serviceRating, cleanRating, foodRating, Note, Reporter) {
 
-    console.log("add", pictureRestaurant);
-    var reader = new FileReader();
-    reader.readAsBinaryString(pictureRestaurant);
-    reader.onload = function (e){
-      bits = e.target.result;
-
-    }
+    // console.log("add", pictureRestaurant);
+    // var reader = new FileReader();
+    // reader.readAsBinaryString(pictureRestaurant);
+    // reader.onload = function (e){
+    //   bits = e.target.result;
+    //
+    // }
     var request = db
         .transaction(['RestaurantDB'], 'readwrite')
         .objectStore('RestaurantDB')
         .add({
-            id: idRestaurant, name: nameRestaurant, picture: bits, type: typeRestaurant, date: dateVisit, time: timeVisit, price: pricePerOne,
+            id: idRestaurant, name: nameRestaurant, picture: pictureRestaurant, type: typeRestaurant, date: dateVisit, time: timeVisit, price: pricePerOne,
             service: serviceRating, clean: cleanRating, food: foodRating, note: Note, reporter: Reporter
         });
     request.onsuccess = function (event) {
