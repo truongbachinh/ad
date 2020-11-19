@@ -33,46 +33,46 @@ $(document).ready(function () {
 
 
 function previewFile() {
-    const preview = document.querySelector('img');
-    const file = document.querySelector('input[type=file]').files[0];
-    const reader = new FileReader();
+    var preview = document.querySelector('img');
+    var file = document.querySelector('input[type=file]').files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
 
     reader.addEventListener("load", function () {
         // convert image file to base64 string
         preview.src = reader.result;
     }, false);
 
-    if (file) {
-        reader.readAsDataURL(file);
-    }
+
 }
 
 function add(idRestaurant, nameRestaurant, pictureRestaurant, typeRestaurant, dateVisit, timeVisit, pricePerOne,
              serviceRating, cleanRating, foodRating, Note, Reporter) {
 
-    // console.log("add", pictureRestaurant);
-    // var reader = new FileReader();
-    // reader.readAsBinaryString(pictureRestaurant);
-    // reader.onload = function (e){
-    //   bits = e.target.result;
-    //
-    // }
-    var request = db
-        .transaction(['RestaurantDB'], 'readwrite')
-        .objectStore('RestaurantDB')
-        .add({
-            id: idRestaurant, name: nameRestaurant, picture: pictureRestaurant, type: typeRestaurant, date: dateVisit, time: timeVisit, price: pricePerOne,
-            service: serviceRating, clean: cleanRating, food: foodRating, note: Note, reporter: Reporter
-        });
-    request.onsuccess = function (event) {
-        alert(`${nameRestaurant}  has been added to your database.`);
-        reload();
-    };
-    request.onerror = function (event) {
-        alert(
-            `Unable to add data\r\n ${idRestaurant} is already exist in your database! `
-        );
-    };
+    console.log("add", pictureRestaurant);
+    var reader = new FileReader();
+    reader.readAsBinaryString(pictureRestaurant);
+    reader.onload = function (e){
+      var imageConvertBase = e.target.result;
+      var request = db
+            .transaction(['RestaurantDB'], 'readwrite')
+            .objectStore('RestaurantDB')
+            .add({
+                id: idRestaurant, name: nameRestaurant, picture: imageConvertBase, type: typeRestaurant, date: dateVisit, time: timeVisit, price: pricePerOne,
+                service: serviceRating, clean: cleanRating, food: foodRating, note: Note, reporter: Reporter
+            });
+        request.onsuccess = function (event) {
+            alert(`${nameRestaurant}  has been added to your database.`);
+            reload();
+        };
+        request.onerror = function (event) {
+            alert(
+                `Unable to add data\r\n ${idRestaurant} is already exist in your database! `
+            );
+        };
+    }
+
+
 }
 
 

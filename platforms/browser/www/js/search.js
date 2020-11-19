@@ -14,7 +14,6 @@ function search() {
         var objectStore = db.transaction('RestaurantDB').objectStore('RestaurantDB');
         objectStore.openCursor().onsuccess = function (event) {
             var cursor = event.target.result;
-            //nameRestaurant = cursor.value.name;
             if (cursor) {
                 var dataSearch = cursor.value[typeSearch]
                 if(dataSearch.includes(search)){
